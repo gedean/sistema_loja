@@ -1,6 +1,8 @@
 <h1>Pages#home</h1>
 
-<% if current_user %>
+<% if user_signed_in? %>
+
+<%= link_to 'Editar usuários',edit_user_registration_path %>
 <%= link_to 'Deslogar',destroy_user_session_path, method: :delete %>
 <% else %>
 <%= link_to 'Cadastre-se aqui',new_user_registration_path %>
