@@ -10,6 +10,10 @@
   <tr>
     <td><%= category.desc %> </td>
     <td><%=link_to 'Mostrar', category_path(category) %> </td>
+    <td><%=link_to 'Editar', edit_category_path(category)%> </td>
+    <td><%=link_to 'Excluir', category_path(category), method: :delete,
+    data: { confirm: 'Você tem certeza que deseja excluir essa categoria?'}
+    %> </td>
   </tr>
   <% end %>
 
