@@ -1,0 +1,17 @@
+<h1> Listando categorias </h1>
+
+<table>
+  <tr>
+  <th>Descrição</th>
+  <th></th>
+</tr>
+
+<% @categories.each do |category| %>
+  <tr>
+    <td><%= category.desc %> </td>
+    <td><%=link_to 'Mostrar', category_path(category) %> </td>
+  </tr>
+  <% end %>
+
+<%= link_to 'Nova categoria', new_category_path  %>
+</table>
