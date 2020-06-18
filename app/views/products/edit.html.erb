@@ -25,6 +25,23 @@
     <%= form.label :price %><br>
     <%= form.text_field :price %>
   </p>
+  <p>
+     <% @product.product_images.each do |product| %>
+  <%= image_tag(product) %>
+
+  <% end %>
+
+      <div class="mb-6">
+
+    <%= form.label :Imagens_dos_produtos, class: "label" %> </p>
+    <p> <div class="dropzone dropzone-default dz-clickable" data-controller="dropzone" data-dropzone-max-file-size="2" data-dropzone-max-files="1">
+    <%= form.file_field :product_images, multiple: true, direct_upload: true, data: { target: 'dropzone.input' } %>
+    <div class="dropzone-msg dz-message needsclick text-gray-600">
+      <h3 class="dropzone-msg-title">Drag here to upload or click here to browse</h3>
+      <span class="dropzone-msg-desc text-sm">2 MB files size maximum. Allowed file types png, jpg.</span>
+      </div>
+    </div> </p>
+  </div>
 
   <p>
     <%= form.submit %>
