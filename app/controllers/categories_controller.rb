@@ -1,7 +1,5 @@
 class CategoriesController < ApplicationController
 
-  #5.11 Updating Articles
-
   def index
     @categories = Category.all
   end

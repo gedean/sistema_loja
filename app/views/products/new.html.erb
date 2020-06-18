@@ -1,0 +1,50 @@
+<h1>Novo produto</h1>
+
+<% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@product.errors.count, "error") %> prohibited
+        this product from being saved:
+      </h2>
+      <ul>
+        <% @product.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= form_with scope: :product, url: products_path, local: true do |form| %>
+    <p>
+      <%= form.label :Descrição %><br>
+      <%= form.text_field :name %>
+    </p>
+
+    <p>
+      <%= form.label :Preço %><br>
+      <%= form.text_field :price %>
+    </p>
+
+  <p>
+  <%= form.label :Categoria %><br>
+  <div class="field">
+
+  <!-- Mudei essa parte aqui de :id para :category_id -->
+  <%= form.collection_select :category_id, Category.all, :id, :desc %><br>
+
+  </div>
+
+   <div class="mb-6">
+  #  <%= form.label :product_photos, class: "label" %>
+  #  <div class="dropzone dropzone-default dz-clickable" data-controller="dropzone" data-dropzone-max-file-size="2" data-dropzone-max-files="1">
+   # <%= form.file_field :product_photos, multiple: true, direct_upload: true, data: { target: 'dropzone.input' } %>
+   # <div class="dropzone-msg dz-message needsclick text-gray-600">
+   #   <h3 class="dropzone-msg-title">Drag here to upload or click here to browse</h3>
+   #   <span class="dropzone-msg-desc text-sm">2 MB file size maximum. Allowed file types png, jpg.</span>
+   #   </div>
+   # </div>
+ # </div>
+
+      <%= form.submit %>
+    </p>
+  <% end %>
