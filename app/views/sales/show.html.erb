@@ -1,28 +1,32 @@
- <%= form.label :Usuário %><br>
-  <div class="field">
-  <%= form.collection_select :email, User.all, :id, :email %><br>
-  </div>
-  </p>
+<p>
+  <strong>Email Usuário:</strong>
+  <%= @sale.user.email %>
+</p>
 
-    <%= form.label :Produto %><br>
-  <div class="field">
-  <%= form.collection_select :product_id, Product.all, :id, :name %><br>
-  </div>
-  </p>
+<p>
+  <strong>Produto:</strong>
+  <%= @sale.product.name %>
+</p>
 
-  <p>
-  <%= form.label :Quantidade %><br>
-  <%= form.text_field :amount %>
- </p>
+<p>
+  <strong>Categoria:</strong>
+  <%= @sale.category.desc %>
+</p>
 
-  <p>
-  <%= form.label :Valor %><br>
-  <%= form.text_field :price %>
- </p>
+<p>
+  <strong>Quantia:</strong>
+  <%= @sale.amount %>
+</p>
 
-  <p>
-  <%= form.label :Total %><br>
-  <%= form.text_field :total %>
+<p>
+  <strong>Preço:</strong>
+  <%= @sale.price %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @sale.total %>
+</p>
 
 <%= link_to 'Edit', edit_sale_path(@sale) %> |
-<%= link_to 'Back', psales_path %>
+<%= link_to 'Back', sales_path %>

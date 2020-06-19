@@ -1,15 +1,15 @@
 <h1>Editar produtos</h1>
 
-<%= form_with model: @product, local: true do |form| %>
+<%= form_with model: @sale, local: true do |form| %>
 
-  <% if @product.errors.any? %>
+  <% if @sale.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@product.errors.count, "error") %> prohibited
-        this product from being saved:
+        <%= pluralize(@sale.errors.count, "error") %> prohibited
+        this sale from being saved:
       </h2>
       <ul>
-        <% @product.errors.full_messages.each do |msg| %>
+        <% @sale.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
