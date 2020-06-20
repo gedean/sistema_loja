@@ -1,6 +1,6 @@
 <h1>Nova venda</h1>
 
-<%= form_with scope: :sale, url: sales_path, local: true do |form| %>
+<%= form_with scope: :sale, data: { controller: 'products' } , url: sales_path, local: true do |form| %>
 
   <% if @sale.errors.any? %>
     <div id="error_explanation">
@@ -36,17 +36,17 @@
 
   <p>
   <%= form.label :Quantidade %><br>
-  <%= form.text_field :amount %>
+  <%= form.text_field :amount, data: { target: 'products.productQuantity', action: 'change->products#calculatePrice' } %>
  </p>
 
   <p>
   <%= form.label :Valor %><br>
-  <%= form.text_field :price %>
+  <%= form.text_field :price, data: { target: 'products.productPrice', action: 'change->products#calculatePrice' } %>
  </p>
 
   <p>
   <%= form.label :Total %><br>
-  <%= form.text_field :total %>
+  <%= form.text_field :total, data: { target: 'products.total' } %>
  </p>
   <%= form.submit %>
   </p>
