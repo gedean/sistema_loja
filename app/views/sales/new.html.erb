@@ -36,17 +36,17 @@
 
   <p>
   <%= form.label :Quantidade %><br>
-  <%= form.text_field :amount, data: { target: 'products.productQuantity', action: 'change->products#calculatePrice' } %>
+  <%= form.text_field :amount, data: { target: 'products.productQuantity', action: 'keyup->products#calculatePrice' } %>
  </p>
 
   <p>
   <%= form.label :Valor %><br>
-  <%= form.text_field :price, data: { target: 'products.productPrice', action: 'change->products#calculatePrice' } %>
+  <%= form.text_field :price, data: { target: 'products.productPrice', action: 'keyup->products#calculatePrice' } %>
  </p>
 
   <p>
   <%= form.label :Total %><br>
-  <%= form.text_field :total, data: { target: 'products.total' } %>
+  <%= form.text_field :total, data: { target: 'products.total' }, disabled: true %>
  </p>
   <%= form.submit %>
   </p>
