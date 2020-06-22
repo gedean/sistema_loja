@@ -1,5 +1,7 @@
 class SalesController < ApplicationController
 
+  load_and_authorize_resource :sale
+
   def index
      @sales = Sale.all
    end

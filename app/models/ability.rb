@@ -4,8 +4,9 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-      can :read User
-      can [:read, :update], Category
+      can [:new, :read, :update], Category
+      can [:new, :read, :update], Product
+      can [:new, :read, :update], Sale
       end
   end
 end

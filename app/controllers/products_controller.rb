@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  load_and_authorize_resource :product
+
   def index
      @products = Product.all
    end

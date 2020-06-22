@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
 
+load_and_authorize_resource :category
+
   def index
     @categories = Category.all
   end
