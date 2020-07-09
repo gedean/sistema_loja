@@ -1,0 +1,22 @@
+= render 'shared/navbar'
+h1
+  |  Editar categoria 
+= form_with(model: @category, local: true) do |form|
+  - if @category.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@category.errors.count, "error")
+        |  prohibited this category from being saved: 
+      ul
+        - @category.errors.full_messages.each do |msg|
+          li
+            = msg
+  p
+    = form.label :descrição
+    br
+    = form.text_field :desc
+  p
+    = form.submit
+  p
+
+= link_to 'Voltar', categories_path

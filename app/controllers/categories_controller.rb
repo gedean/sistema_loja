@@ -40,7 +40,6 @@ load_and_authorize_resource :category
 end
 
 def destroy
-  @category = Category.find(params[:id])
   @category.destroy
 
   redirect_to categories_path
