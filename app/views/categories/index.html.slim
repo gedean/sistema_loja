@@ -1,19 +1,24 @@
 h1
   |  Listando categorias 
-table
+table.table.table-hover
+ thead
   tr
     th
       | Descrição
     th
   - @categories.each do |category|
+    tbody
     tr
       td
         = category.desc
       td
-        =link_to 'Mostrar', category_path(category)
+        =link_to 'Mostrar  ', category_path(category)
+        i.fa.fa-binoculars
       td
-        =link_to 'Editar', edit_category_path(category)
+        =link_to 'Editar  ', edit_category_path(category)
+        i.fa.fa-edit
       td
-        =link_to 'Excluir', category_path(category), method: :delete,
+        =link_to 'Excluir  ', category_path(category), method: :delete,
              data: { confirm: 'Você tem certeza que deseja excluir essa categoria?'}
+        i.fa.fa-trash
   = link_to 'Nova categoria', new_category_path
