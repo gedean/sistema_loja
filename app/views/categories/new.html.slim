@@ -3,15 +3,14 @@
     #error_explanation
       h2
         = pluralize(@category.errors.count, "error")
-        |  prohibited this category from being saved: 
+        | prohibited
+        | this category from being saved:
       ul
         - @category.errors.full_messages.each do |msg|
-          li
-            = msg
-  = render 'shared/navbar'
+          li= msg
   p
     = form.label :descrição
-    br
+    br/
     = form.text_field :desc
   p
     = form.submit

@@ -1,4 +1,3 @@
-= render 'shared/navbar'
 h1
   |  Listando categorias 
 table
@@ -11,10 +10,10 @@ table
       td
         = category.desc
       td
-        =link_to "Mostrar", category_path(category)
+        =link_to 'Mostrar', category_path(category)
       td
-        =link_to "Editar", edit_category_path(category)
+        =link_to 'Editar', edit_category_path(category)
       td
-        =link_to "Excluir", category_path(category), method: :delete,
-             data: { confirm: "Você tem certeza que deseja excluir essa categoria?"}
-  = link_to "Nova categoria", new_category_path
+        =link_to 'Excluir', category_path(category), method: :delete,
+        -     data: { confirm: 'Você tem certeza que deseja excluir essa categoria?'}
+  = link_to 'Nova categoria', new_category_path
