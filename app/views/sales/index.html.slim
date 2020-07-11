@@ -1,0 +1,42 @@
+h1
+  | Listando Vendas
+= link_to 'Nova Venda', new_sale_path
+table.table.table-hover
+  tr
+    th
+      | Email Vendedor
+    th
+      | Produto
+    th
+      | Categoria
+    th
+      | Quantia
+    th
+      | Preço
+    th
+      | Total
+    th
+  - @sales.each do |sale|
+    tr
+      td
+        = sale.user.email
+      td
+        = sale.product.name
+      td
+        = sale.category.desc
+      td
+        = sale.amount
+      td
+        = sale.price
+      td
+        = sale.total
+      td
+        = link_to 'Mostrar', sale_path(sale)
+        i.fa.fa-binoculars
+      td
+        = link_to 'Editar', edit_sale_path(sale)
+        i.fa.fa-edit
+      td
+        = link_to 'Excluir   ', sale_path(sale),method: :delete,
+             data: { confirm: 'Tem certeza que deseja excluir essa venda?' }
+        i.fa.fa-trash

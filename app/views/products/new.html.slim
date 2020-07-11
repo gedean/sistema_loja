@@ -1,0 +1,36 @@
+h1
+  | Novo produto
+- if @product.errors.any?
+  #error_explanation
+    h2
+      = pluralize(@product.errors.count, "error")
+      |  prohibited this product from being saved: 
+    ul
+      - @product.errors.full_messages.each do |msg|
+        li
+          = msg
+= form_with scope: :product, url: products_path, local: true do |form|
+  p
+    = form.label :Descrição
+    br
+    = form.text_field :name
+  p
+    = form.label :Preço
+    br
+    = form.text_field :price
+  p
+    = form.label :Categoria
+    br
+  .field
+    = form.collection_select :category_id, Category.all, :id, :desc
+    br
+  .mb-6
+    = form.label :Imagens_dos_produtos, class: "label"
+    .dropzone.dropzone-default.dz-clickable[data-controller="dropzone" data-dropzone-max-file-size="10" data-dropzone-max-files="10"]
+      = form.file_field :product_images, multiple: true, direct_upload: true, data: { target: 'dropzone.input' }
+      .dropzone-msg.dz-message.needsclick.text-gray-600
+        h3.dropzone-msg-title
+          | Drag here to upload or click here to browse
+        span.dropzone-msg-desc.text-sm
+          | 2 MB files size maximum. Allowed file types png, jpg.
+  = form.submit

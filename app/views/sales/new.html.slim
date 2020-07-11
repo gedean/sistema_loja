@@ -1,0 +1,42 @@
+h1
+  | Nova venda
+= form_with scope: :sale, data: { controller: 'products' } , url: sales_path, local: true do |form|
+  - if @sale.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@sale.errors.count, "error")
+        |  prohibited this sale from being saved: 
+      ul
+        - @sale.errors.full_messages.each do |msg|
+          li
+            = msg
+  = form.label :Usuário
+  br
+  .field
+    = form.collection_select :user_id, User.all, :id, :email
+    br
+  = form.label :Produto
+  br
+  .field
+    = form.collection_select :product_id, Product.all, :id, :name
+    br
+  = form.label :Categoria
+  br
+  .field
+    = form.collection_select :category_id, Category.all, :id, :desc
+    br
+  p
+    = form.label :Quantidade
+    br
+    = form.text_field :amount, data: { target: 'products.productQuantity', action: 'keyup->products#calculatePrice' }
+  p
+    = form.label :Valor
+    br
+    = form.text_field :price, data: { target: 'products.productPrice', action: 'keyup->products#calculatePrice' }
+  p
+    = form.label :Total
+    br
+    = form.text_field :total, data: { target: 'products.total' }, disabled: true
+  = form.submit
+  p
+    = link_to 'Voltar', sales_path
