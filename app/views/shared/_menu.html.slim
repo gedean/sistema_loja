@@ -5,11 +5,18 @@
     tbody
       tr
         td
-          = link_to  'Categorias', controller:'categories'
+          = link_to controller: 'categories' do
+                                i.fa.fa-object-group
+                                | Categorias
         td
-          = link_to 'Produtos', controller:'products'
+          = link_to controller: 'products'  do
+                                i.fa.fa-book-open
+                                | Produtos
         td
-          = link_to 'Vendas', controller:'sales'
+          = link_to controller: 'sales' do
+                                i.fa.fa-list
+                                | Vendas
+          
 - else
   table.table
     thead
