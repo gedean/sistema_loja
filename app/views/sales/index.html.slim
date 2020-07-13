@@ -30,13 +30,8 @@ table.table.table-hover
         = sale.price
       td
         = sale.total
+        =button_to 'Mostrar', sale_path(sale), method: 'get', class: 'btn btn-primary'
       td
-        = link_to 'Mostrar', sale_path(sale)
-        i.fa.fa-binoculars
+        = button_to 'Editar', edit_sale_path(sale), method: :get, class: 'btn btn-warning'
       td
-        = link_to 'Editar', edit_sale_path(sale)
-        i.fa.fa-edit
-      td
-        = link_to 'Excluir   ', sale_path(sale),method: :delete,
-             data: { confirm: 'Tem certeza que deseja excluir essa venda?' }
-        i.fa.fa-trash
+        = button_to 'Excluir', sale_path(sale), method: :delete, class: 'btn btn-danger btn-sm confirm', data: { confirm: 'Você tem certeza que deseja excluir essa categoria?'}      
