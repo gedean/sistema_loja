@@ -1,6 +1,5 @@
 h1
   | Listando Vendas
-= link_to 'Nova Venda', new_sale_path
 table.table.table-hover
   tr
     th
@@ -30,8 +29,9 @@ table.table.table-hover
         = sale.price
       td
         = sale.total
-        =button_to 'Mostrar', sale_path(sale), method: 'get', class: 'btn btn-primary'
+        = button_to 'Mostrar', sale_path(sale), method: 'get', class: 'btn btn-primary'
       td
         = button_to 'Editar', edit_sale_path(sale), method: :get, class: 'btn btn-warning'
       td
-        = button_to 'Excluir', sale_path(sale), method: :delete, class: 'btn btn-danger btn-sm confirm', data: { confirm: 'Você tem certeza que deseja excluir essa categoria?'}      
+        = button_to 'Excluir', sale_path(sale), method: :delete, class: 'btn btn-danger btn-sm confirm', data: { confirm: 'Você tem certeza que deseja excluir essa categoria?'}
+= link_to 'Nova Venda', new_sale_path
