@@ -12,9 +12,10 @@ table.table.table-hover
       td
         = category.desc
       td
-        = button_to 'Mostrar', category_path(category), method: 'get', class: 'btn btn-primary'
+        = button_to 'Mostrar', category_path(category), method: :get, class: 'btn btn-success'
       td
         = button_to 'Editar', edit_category_path(category), method: :get, class: 'btn btn-warning'
       td
         = button_to 'Excluir', category_path(category), method: :delete, class: 'btn btn-danger btn-sm confirm', data: { confirm: 'Você tem certeza que deseja excluir essa categoria?'}      
-= link_to 'Nova categoria', new_category_path
+
+= button_to 'Nova categoria', new_category_path, method: :get, class: 'btn btn-primary'

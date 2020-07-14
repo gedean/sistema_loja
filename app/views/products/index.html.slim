@@ -18,10 +18,11 @@ table.table.table-hover
       td
         = product.category.desc
       td
-        = button_to 'Mostrar', product_path(product), method: 'get', class: 'btn btn-primary'
+        = button_to 'Mostrar', product_path(product), method: 'get', class: 'btn btn-success'
       td
         = button_to 'Editar', edit_product_path(product), method: :get, class: 'btn btn-warning'
       td
         = button_to 'Excluir', product_path(product), method: :delete, class: 'btn btn-danger btn-sm confirm', data: { confirm: 'Você tem certeza que deseja excluir esse produto?'} 
-= link_to 'Novo Produto', new_product_path
+
+= button_to 'Novo Produto', new_product_path, method: :get, class: 'btn btn-primary'
     
