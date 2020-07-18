@@ -1,21 +1,21 @@
-h3
-  |  Listando categorias 
+.d-flex.align-items-center.justify-content-space-between
+  h3
+    |  Listando categorias
+  = button_to 'Nova Categoria', new_category_path, method: :get, class: 'btn btn-primary'
+
 table.table.table-hover
- thead
-  tr
-    th
-      | Descrição
-    th
-  - @categories.each do |category|
-    tbody
+  thead
     tr
-      td
-        = category.desc
-    .grid  
-     .button_new
-      = button_to 'Nova Categoria', new_category_path, method: :get, class: 'btn btn-primary'
-      .button_show  
-       = button_to 'Mostrar', category_path(category), method: :get, class: 'btn btn-success'
-       = button_to 'Editar', edit_category_path(category), method: :get, class: 'btn btn-warning'
-       = button_to 'Excluir', category_path(category), method: :delete, class: 'btn btn-danger btn-sm confirm', data: { confirm: 'Você tem certeza que deseja excluir essa categoria?'}      
-        
+      th
+        | Descrição
+      th
+  tbody
+    - @categories.each do |category|
+      tr
+        td
+          = category.desc
+        td
+          .d-flex.align-items-center.justify-content-center
+            = button_to 'Mostrar', category_path(category), method: :get, class: 'btn btn-success'
+            = button_to 'Editar', edit_category_path(category), method: :get, class: 'btn btn-warning'
+            = button_to 'Excluir', category_path(category), method: :delete, class: 'btn btn-danger btn-sm confirm', data: { confirm: 'Você tem certeza que deseja excluir essa categoria?'}
