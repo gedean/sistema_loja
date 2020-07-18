@@ -9,3 +9,26 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import 'bootstrap.min';
 @import 'style';
 @import 'animate';
+
+.grid {
+    display: grid;
+    justify-content: right;
+	grid-template-columns: [col1] 30% [col2] 70%;
+	grid-gap: 5px;
+	grid-template-rows: [row1] 50% [row2] 50%;
+	text-align: end;
+	color: #FFF;
+}
+
+.button_new {
+	grid-row: 1/4;
+    grid-column: 2/2;
+     border-radius: 6px;
+	}
+
+.buttons_show,.button_edit, .button_delete {
+    grid-row: 2 / 2;
+    grid-column: 2/4;
+	border-radius: 6px;
+}
+

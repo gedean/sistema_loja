@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  get 'grid/index'
   devise_for :users
   root to: 'pages#home'
+  resources :grid
   resources :categories
   resources :products
   resources :sales
