@@ -1,28 +1,30 @@
-h1
-  | Listando Produtos
+.d-flex.align-items-center.justify-content-space-between
+  h3
+    |  Listando produtos  
+  = button_to 'Novo Produto', new_product_path, method: :get, class: 'btn btn-primary'
 table.table.table-hover
-  tr
-    th
-      | Descrição
-    th
-      | Preço
-    th
-      | Categoria
-    th
-  - @products.each do |product|
+  thead
     tr
-      td
-        = product.name
-      td
-        = product.price
-      td
-        = product.category.desc
-      td
-        = button_to 'Mostrar', product_path(product), method: 'get', class: 'btn btn-success'
-      td
-        = button_to 'Editar', edit_product_path(product), method: :get, class: 'btn btn-warning'
-      td
-        = button_to 'Excluir', product_path(product), method: :delete, class: 'btn btn-danger btn-sm confirm', data: { confirm: 'Você tem certeza que deseja excluir esse produto?'} 
-
-= button_to 'Novo Produto', new_product_path, method: :get, class: 'btn btn-primary'
-    
+      th
+        | Descrição
+      th
+      th
+        | Preço
+      th
+        | Categoria
+      th
+  tbody
+    - @products.each do |product|
+        tr
+          td
+            = product.name
+          td
+          td
+            = product.price
+          td
+            = product.category.desc
+          td
+          .d-flex.align-items-center.justify-content-end
+              = button_to 'Mostrar',  product_path(product), method: 'get', class: 'btn btn-success'
+              = button_to 'Editar', edit_product_path(product), method: :get, class: 'btn btn-warning'
+              = button_to 'Excluir', product_path(product), method: :delete, class: 'btn btn-danger btn-sm confirm', data: { confirm: 'Você tem certeza que deseja excluir esse produto?'}

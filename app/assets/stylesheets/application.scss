@@ -12,12 +12,10 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 
 .d-flex {
     display: flex;
-    margin-left: 50px;
-    margin-right: 40px;
   }
   
   .align-items-center {
-    align-items: center;
+    align-items: flex-end;
   }
   
   .justify-content-end {
@@ -26,8 +24,4 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
   
   .justify-content-space-between {
     justify-content: space-between;
-  }
-
-  .table.table.table-hover {
-    margin-left: 50px;    
   }
