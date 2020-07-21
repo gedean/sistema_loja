@@ -1,38 +1,40 @@
-h1
-  | Listando Vendas
+.d-flex.align-items-center.justify-content-space-between
+  h3
+    |  Listando Vendas
+  = button_to 'Nova Venda', new_sale_path, method: :delete, class: 'btn btn-primary'  
 table.table.table-hover
-  tr
-    th
-      | Email Vendedor
-    th
-      | Produto
-    th
-      | Categoria
-    th
-      | Quantia
-    th
-      | Preço
-    th
-      | Total
-    th
-  - @sales.each do |sale|
+  thead
     tr
-      td
-        = sale.user.email
-      td
-        = sale.product.name
-      td
-        = sale.category.desc
-      td
-        = sale.amount
-      td
-        = sale.price
-      td
-        = sale.total
-        = button_to 'Mostrar', sale_path(sale), method: 'get', class: 'btn btn-success'
-      td
-        = button_to 'Editar', edit_sale_path(sale), method: :get, class: 'btn btn-warning'
-      td
-        = button_to 'Excluir', sale_path(sale), method: :delete, class: 'btn btn-danger btn-sm confirm', data: { confirm: 'Você tem certeza que deseja excluir essa categoria?'}
-
-= button_to 'Nova Venda', new_sale_path, method: :delete, class: 'btn btn-primary'
+      th
+        | Email Vendedor
+      th
+        | Produto
+      th
+        | Categoria
+      th
+        | Quantia
+      th
+        | Preço
+      th
+        | Total
+      th
+  tbody
+    - @sales.each do |sale|
+      tr
+        td
+          = sale.user.email
+        td
+          = sale.product.name
+        td
+          = sale.category.desc
+        td
+          = sale.amount
+        td
+          = sale.price
+        td
+          = sale.total
+        td
+        .d-flex.align-items-center.justify-content-end
+            = button_to 'Mostrar', sale_path(sale), method: 'get', class: 'btn btn-success'
+            = button_to 'Editar', edit_sale_path(sale), method: :get, class: 'btn btn-warning'
+            = button_to 'Excluir', sale_path(sale), method: :delete, class: 'btn btn-danger btn-sm confirm', data: { confirm: 'Você tem certeza que deseja excluir essa categoria?'}
