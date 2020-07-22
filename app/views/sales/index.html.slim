@@ -1,7 +1,7 @@
 .d-flex.align-items-center.justify-content-space-between
   h3
     |  Listando Vendas
-  = button_to 'Nova Venda', new_sale_path, method: :delete, class: 'btn btn-primary'  
+  = button_to 'Nova Venda', new_sale_path, method: :get, class: 'btn btn-primary'  
 table.table.table-hover
   thead
     tr
@@ -34,7 +34,7 @@ table.table.table-hover
         td
           = sale.total
         td
-        .d-flex.align-items-center.justify-content-end
+          .d-flex.align-items-center.justify-content-end
             = button_to 'Mostrar', sale_path(sale), method: 'get', class: 'btn btn-success'
             = button_to 'Editar', edit_sale_path(sale), method: :get, class: 'btn btn-warning'
             = button_to 'Excluir', sale_path(sale), method: :delete, class: 'btn btn-danger btn-sm confirm', data: { confirm: 'Você tem certeza que deseja excluir essa categoria?'}
