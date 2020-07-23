@@ -12,11 +12,10 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 
 .d-flex {
     display: flex;
+    margin: 15px;
   }
   
-  .align-items-center {
-    align-items: right;
-  }
+
   
   .justify-content-end {
     justify-content: flex-end;
@@ -29,4 +28,5 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
   .btn-success, .btn-warning, .btn-danger, .btn-sm confirm {
   width: 70px;
   height: 30px;
+  margin: 5px;
 }
