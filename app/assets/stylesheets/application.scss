@@ -9,13 +9,18 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import 'bootstrap.min';
 @import 'style';
 @import 'animate';
+@import 'owl.carousel';
+@import 'owl.theme';
+@import 'owl.transitions';
+@import 'normalize';
+@import 'jquery.mCustomScrollbar.min';
+@import 'waves.min';
+@import 'responsive';
 
 .d-flex {
     display: flex;
     margin: 15px;
   }
-  
-
   
   .justify-content-end {
     justify-content: flex-end;
